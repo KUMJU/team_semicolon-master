@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="알림">
+
+        <SwitchPreference
+            android:key="alert_switch"
+            android:title="유통기한 임박 알림 설정"
+            android:summaryOn="유통기한 임박 알림을 사용합니다."
+            android:summaryOff="유통기한 임박 알림을 사용하지 않습니다."
+            android:defaultValue="true"
+            />
+
+        <ListPreference
+            android:entries="@array/array_days"
+            android:entryValues="@array/array_days_values"
+            android:key="alert_date"
+            android:title="유통기한 임박 알림 일 수"
+            android:summary="유통기한 임박 몇일 전 부터 알려 드릴까요?"
+            android:defaultValue="3"
+            android:dependency="alert_switch"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="데이터">
+
+        <!--
+        <CheckBoxPreference
+            android:key="calender_sync"
+            android:title="구글 캘린더 동기화"
+            android:summary="유통기한 내역을 캘린더와 동기화합니다."
+            />
+        -->
+
+        <CheckBoxPreference
+            android:key="PieChart"
+            android:title="차트 항목 세부사항 표시 설정"
+            android:summaryOn="카테고리 이름과 분포를 출력합니다."
+            android:summaryOff="카테고리 이름만 출력합니다."
+            android:defaultValue="true"
+            />
+
+        <!--
+        <Preference
+            android:key="reset"
+            android:title="초기화"
+            android:summary="모든 데이터를 초기화합니다."
+            />
+             -->
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="정보">
+
+        <Preference
+            android:key="send_mail"
+            android:summary="개발자에게 메일을 보냅니다."
+            android:title="메일 보내기">
+            <intent
+                android:action="android.intent.action.SENDTO"
+                android:data="mailto:jun34724@gmail.com" />
+
+        </Preference>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
